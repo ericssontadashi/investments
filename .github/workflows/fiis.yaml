@@ -30,6 +30,7 @@ jobs:
         ls
         pwd
         chmod 777 fiis/*.py
+        ls -lah fiis
 
     - name: Run Web Scraper
       run: python fiis/main.py
@@ -37,4 +38,10 @@ jobs:
     - name: List folders
       run: |
         ls
-        ls fiis
+        ls -lah fiis
+
+    - name: Archive artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: excel file
+        path: fiis/fiis.xlsx
