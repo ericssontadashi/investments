@@ -25,5 +25,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas openpyxl requests beautifulsoup4 Pyarrow
 
+    - name: Install dependencies
+      run: |
+        ls
+        pwd
+
     - name: Run Web Scraper
-      run: python ../../main.py
+      run: python fiis/main.py
