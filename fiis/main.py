@@ -8,7 +8,7 @@ fiis_list = ["btlg11"]
 
 fiis_indicators = []
 for fii in fiis_list:
-  url = f"https://statusinvest.com.br/fundos-imobiliarios/{fii}2"
+  url = f"https://statusinvest.com.br/fundos-imobiliarios/{fii}"
   
   time.sleep(0.25)
   try:
