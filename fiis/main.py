@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
-import requests
 from urllib.request import Request, urlopen
-import time
+import time, traceback
 import pandas as pd
 
 fiis_list = ["btlg11"]
@@ -9,12 +8,13 @@ fiis_list = ["btlg11"]
 
 fiis_indicators = []
 for fii in fiis_list:
-  url = f"https://statusinvest.com.br/fundos-imobiliarios/{fii}"
+  url = f"https://statusinvest.com.br/fundos-imobiliarios/{fii}2"
   
   time.sleep(0.25)
   try:
     req = Request(url)
-    req.add_header('User-Agent', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36')
+    req.add_header('User-Agent', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Mobile Safari/537.36')
+    req.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7')
     html = urlopen(req)
     soup = BeautifulSoup(html, 'html.parser')
       
@@ -57,6 +57,7 @@ for fii in fiis_list:
     fiis_indicators.append(dict)
   except Exception as e:
     print(e)
+    print(repr(traceback.format_exception(e)))
 
 df = pd.DataFrame.from_dict(fiis_indicators)
 df.to_excel("fiis.xlsx", index=False)
