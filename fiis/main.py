@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
-from urllib.request import Request, urlopen
+#from urllib.request import Request, urlopen
+import urllib.request
 import time, traceback
 import pandas as pd
 
@@ -9,15 +10,16 @@ fiis_list = ["btlg11"]
 fiis_indicators = []
 for fii in fiis_list:
   url = f"https://statusinvest.com.br/fundos-imobiliarios/{fii}"
+  print(url)
   
   time.sleep(0.25)
   try:
-    req = Request(url)
+    req = urllib.request.Request(url)
     req.add_header('User-Agent', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Mobile Safari/537.36')
     req.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7')
-    html = urlopen(req)
+    html = urllib.request.urlopen(req)
     soup = BeautifulSoup(html, 'html.parser')
-      
+
     fund = soup.find("div", id="fund-section")
     main = soup.find("main", id="main-2")
 
