@@ -25,21 +25,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas openpyxl urllib3 beautifulsoup4 Pyarrow
 
-    - name: List folders
-      run: |
-        ls -lah
-        pwd
-        chmod 777 fiis/*.py
-        ls -lah fiis
-
     - name: Run Web Scraper
       run: python fiis/main.py
-
-    - name: List folders 2
-      run: |
-        ls -lah
-        pwd
-        ls -lah fiis
 
     - name: Archive artifact
       uses: actions/upload-artifact@v2
