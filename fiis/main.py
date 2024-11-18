@@ -5,7 +5,7 @@ import time, traceback
 import pandas as pd
 
 #fiis_list = ["btlg11"]
-fiis_list = ["bcff11","btlg11","cpts11","cvbi11","deva11","ggrc11","hctr11","hfof11","hgbs11","hglg11","hgru11","hsml11","irdm11","kncr11","knri11","mcci11","mfii11","mxrf11","rbva11","recr11","rect11","rzat11","snci11","snff11","tord11","trbl11","trxf11","urpr11","vgip11","visc11","vrta11","vslh11","xpci11","xpcm11","xplg11","xpml11"]
+fiis_list = ["bthf11","btlg11","cpts11","cvbi11","deva11","ggrc11","hctr11","hfof11","hgbs11","hglg11","hgru11","hsml11","irdm11","kncr11","knri11","mcci11","mfii11","mxrf11","rbva11","recr11","rect11","rzat11","snci11","snff11","tord11","trbl11","trxf11","vgip11","visc11","vrta11","vslh11","xpci11","xpcm11","xplg11","xpml11"]
 
 fiis_indicators = []
 for fii in fiis_list:
